@@ -46,7 +46,7 @@ export default function Header({initialUser}) {
             ) : (
                 <div className="profile"><a href="#" onClick={handleSignIn}>
 
-                    Lo
+                    Login
                 </a></div>
             )}
         </header>

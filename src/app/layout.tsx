@@ -26,6 +26,7 @@ export default async function RootLayout({
       <body>
 
       <main>
+          <Header initialUser={currentUser}/>
           <Providers>
             {children}
           </Providers>

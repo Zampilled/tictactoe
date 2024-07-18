@@ -4,19 +4,18 @@ import {useDocumentData} from "react-firebase-hooks/firestore";
 import Tictactoe from "@/src/components/tictactoe";
 import {doc} from "firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
+import {auth} from "@/src/lib/firebase/clientApp";
 import {Heading} from "@chakra-ui/react";
 import {useUserSession} from "@/src/lib/useUserSession";
 import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp";
+import {useAuthState} from "react-firebase-hooks/auth";
 
-function getUser(){
-     const { currentUser } = getAuthenticatedAppForUser();
-    return useUserSession(currentUser)
- }
+
 
 export default function Home({params}){
     const docRef = doc(db, "games", params.id)
     const data = useDocumentData(docRef)
-    const myUser = getUser()
+    const user = auth.currentUser
     if (data[0]){
     return(
 
@@ -35,7 +34,7 @@ export default function Home({params}){
         turn={data[0].turn}
         x_uuid={data[0].x_uuid}
         o_uuid={data[0].o_uuid}
-        user = {myUser}
+        user = {user.email}
 
         />
     )
