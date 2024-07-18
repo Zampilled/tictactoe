@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/components/header";
 import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp";
+import {Providers} from "@/src/app/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
@@ -23,9 +24,12 @@ export default async function RootLayout({
       <html lang="en">
 
       <body>
-      <Header initialUser={currentUser?.toJSON()}/>
 
-      <main>{children}</main>
+      <main>
+          <Providers>
+            {children}
+          </Providers>
+      </main>
       </body>
 
       </html>

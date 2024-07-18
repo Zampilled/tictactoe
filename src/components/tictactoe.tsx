@@ -1,0 +1,96 @@
+"use client"
+
+import {Box, Button, Center, Heading, HStack, VStack} from "@chakra-ui/react";
+import Tile from "@/src/components/Tile";
+
+
+export default function Tictactoe({
+                                      game_id,
+    a1,
+    a2,
+    a3,
+    b1,
+    b2,
+    b3,
+    c1,
+    c2,
+    c3,
+    game_state,
+    user,
+    x_uuid,
+    o_uuid,
+    turn,
+
+    }){
+    if(game_state == 0) {
+        return (
+            <Box>
+
+                <VStack>
+
+
+                        <Heading>GAME ID {game_id}</Heading>
+                        <Heading>{turn==1?x_uuid:o_uuid}'s Turn </Heading>
+                        <Heading>({turn==1?"X":"Y"} To Move)</Heading>
+                    <HStack>
+                        <Box>
+                            <Tile tile_state={a1} tile_id={"a1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={a2} tile_id={"a2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={a3} tile_id={"a3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                    </HStack>
+                    <HStack>
+                        <Box>
+                            <Tile tile_state={b1} tile_id={"b1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={b2} tile_id={"b2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={b3} tile_id={"b3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                    </HStack>
+                    <HStack>
+                        <Box>
+                            <Tile tile_state={c1} tile_id={"c1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={c2} tile_id={"c2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                        <Box>
+                            <Tile tile_state={c3} tile_id={"c3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                        </Box>
+                    </HStack>
+                </VStack>
+
+            </Box>
+        )
+    }else if(game_state == 1){
+        return (
+            <Box>
+                <Heading>
+                    X'S WIN
+                </Heading>
+            </Box>
+        )
+    }else if(game_state == 3) {
+        return (
+            <Box>
+                <Heading>
+                    O'S WIN
+                </Heading>
+            </Box>
+        )
+    }else {
+        return (
+            <Box>
+
+            </Box>
+        )
+    }
+
+}
