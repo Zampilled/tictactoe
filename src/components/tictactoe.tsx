@@ -25,47 +25,48 @@ export default function Tictactoe({
     if(game_state == 0) {
         return (
             <Box>
-
+                <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <VStack>
 
 
                         <Heading>GAME ID {game_id}</Heading>
                         <Heading>{turn==1?x_uuid:o_uuid}'s Turn </Heading>
-                        <Heading>({turn==1?"X":"Y"} To Move)</Heading>
+                        <Heading>({turn==1?"X":"O"} To Move)</Heading>
                     <HStack>
                         <Box>
-                            <Tile tile_state={a1} tile_id={"a1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={a1} tile_i={0} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={a2} tile_id={"a2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={a2} tile_i={1} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={a3} tile_id={"a3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={a3} tile_i={2} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                     </HStack>
                     <HStack>
                         <Box>
-                            <Tile tile_state={b1} tile_id={"b1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={b1} tile_i={3} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={b2} tile_id={"b2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={b2} tile_i={4} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={b3} tile_id={"b3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={b3} tile_i={5} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                     </HStack>
                     <HStack>
                         <Box>
-                            <Tile tile_state={c1} tile_id={"c1"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={c1} tile_i={6} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={c2} tile_id={"c2"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={c2} tile_i={7}  game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                         <Box>
-                            <Tile tile_state={c3} tile_id={"c3"} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
+                            <Tile tile_state={c3} tile_i={8} game_id={game_id} turn={turn} user={user} x_uuid={x_uuid} o_uuid={o_uuid}/>
                         </Box>
                     </HStack>
                 </VStack>
+                </Center>
 
             </Box>
         )

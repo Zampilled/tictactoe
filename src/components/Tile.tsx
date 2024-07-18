@@ -1,9 +1,9 @@
 import {Button, Center, Heading} from "@chakra-ui/react";
 import makeMove from "@/src/lib/makeMove";
 
-export default function Tile({tile_state, tile_id, game_id, turn, user, x_uuid, o_uuid}){
+export default function Tile({tile_state, tile_i, game_id, turn, user, x_uuid, o_uuid}){
     function handleClick(){
-        makeMove(tile_id, game_id, turn, user, x_uuid, o_uuid)
+        makeMove(tile_i, game_id, turn, user, x_uuid, o_uuid)
     }
     if(tile_state == 0){
         return(

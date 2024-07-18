@@ -20,21 +20,21 @@ export default function Home({params}){
     return(
 
         <Tictactoe
-        a1={data[0].a1}
-        a2={data[0].a2}
-        a3={data[0].a3}
-        b1={data[0].b1}
-        b2={data[0].b2}
-        b3={data[0].b3}
-        c1={data[0].c1}
-        c2={data[0].c2}
-        c3={data[0].c3}
+        a1={data[0].board[0]}
+        a2={data[0].board[1]}
+        a3={data[0].board[2]}
+        b1={data[0].board[3]}
+        b2={data[0].board[4]}
+        b3={data[0].board[5]}
+        c1={data[0].board[6]}
+        c2={data[0].board[7]}
+        c3={data[0].board[8]}
         game_state={data[0].game_state}
         game_id={params.id}
         turn={data[0].turn}
         x_uuid={data[0].x_uuid}
         o_uuid={data[0].o_uuid}
-        user = {user.email}
+        user = {user}
 
         />
     )
