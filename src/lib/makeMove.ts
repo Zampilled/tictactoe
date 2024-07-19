@@ -37,7 +37,7 @@ export default async function makeMove(
                 console.log(myDataNew)
                 console.log("end")
                 setDoc(doc(db, "games", game_id), myDataNew)
-                checkBoard(game_id)
+                await checkBoard(game_id)
             }
 
         }else if(turn  == 2){
@@ -55,7 +55,7 @@ export default async function makeMove(
                 console.log(myDataNew)
                 console.log("end")
                 setDoc(doc(db, "games", game_id), myDataNew)
-                checkBoard(game_id)
+                await checkBoard(game_id)
             }
         }
 
