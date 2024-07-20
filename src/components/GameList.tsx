@@ -4,11 +4,11 @@ import {
     Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
 } from "@chakra-ui/react";
 
-export default function GameList({id}){
+export default function GameList(){
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button onClick={onOpen}>Open Modal</Button>
+            <Button onClick={onOpen}>Active Game List</Button>
             <Modal
                 isCentered
                 onClose={onClose}
@@ -17,7 +17,7 @@ export default function GameList({id}){
             >
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
+                    <ModalHeader>Active Games</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                         hello
@@ -26,7 +26,6 @@ export default function GameList({id}){
                         <Button colorScheme='blue' mr={3} onClick={onClose}>
                             Close
                         </Button>
-                        <Button variant='ghost'>Secondary Action</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>

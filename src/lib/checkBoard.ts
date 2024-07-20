@@ -42,12 +42,14 @@ function checkDiag(board){
 function pushWinner(winner,id,data){
     console.log(data)
     data.game_state=winner
+    data.active=false
     console.log("winner")
     setDoc(doc(db, "games", id), data)
 }
 
 
 export default async function checkBoard(id){
+    console.log("checking board")
     const docRef = doc(db, "games", id)
     const data = await getDoc(docRef)
     const processed_data = data.data()

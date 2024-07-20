@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 
 import GameList from "@/src/components/GameList";
+import CreateGame from "@/src/components/CreateGame";
+import GameArchive from "@/src/components/GameArchive";
 
 
 export default async function Home() {
@@ -26,10 +28,9 @@ export default async function Home() {
               <Heading pb={6}>
                   TIC TAC TOE
               </Heading>
-              <GameList id={"haii"}/>
-              <test/>
-              {auth.currentUser ? (<Button>Create New Game</Button>) : <Box></Box>}
-
+              {auth.currentUser ? (<CreateGame/>) : <Box></Box>}
+              <GameList/>
+              <GameArchive/>
 
           </VStack>
       </Center>

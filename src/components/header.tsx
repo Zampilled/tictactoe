@@ -9,6 +9,7 @@ import {
 import { useRouter } from "next/navigation";
 import { firebaseConfig } from "@/src/lib/firebase/config";
 import {useUserSession} from "@/src/lib/useUserSession";
+import {Box, Button, Center, Container, Flex, HStack, Image, Text} from "@chakra-ui/react";
 
 
 export default function Header({initialUser}) {
@@ -26,29 +27,35 @@ export default function Header({initialUser}) {
     };
 
     return (
-        <header>
+
+            <Container width={"100%"} display={"flex"} align={"center"}>
+                <Box align={"right"}>
             {user ? (
-                <>
-                    <div className="profile">
-                        <p>
-                            <img className="profileImage" src={user.photoURL || "/profile.svg"} alt={user.email} />
-                            {user.displayName}
-                        </p>
+                <HStack>
 
 
-                        <a href="#" onClick={handleSignOut}>
+                    <Image src={user.photoURL || "/profile.svg"} alt={user.email} />
+                    <Text>{user.email}</Text>
+
+
+
+                        <Button onClick={handleSignOut}>
                             Sign Out
-                        </a>
+                        </Button>
 
 
-                    </div>
-                </>
+
+                </HStack>
             ) : (
-                <div className="profile"><a href="#" onClick={handleSignIn}>
+                <Button onClick={handleSignIn}>
 
                     Login
-                </a></div>
+                </Button>
             )}
-        </header>
+                </Box>
+            </Container>
+
+
+
     );
 }

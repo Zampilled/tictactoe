@@ -44,7 +44,6 @@ export default async function makeMove(
             if (user.email == o_uuid){
                 console.log("o has moved")
                 let myData = await getDoc(doc(db,"games", game_id))
-
                 let myDataNew = myData.data()
                 console.log(myDataNew)
 
