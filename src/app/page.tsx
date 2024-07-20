@@ -18,6 +18,7 @@ import {
 import GameList from "@/src/components/GameList";
 import CreateGame from "@/src/components/CreateGame";
 import GameArchive from "@/src/components/GameArchive";
+import MyGameList from "@/src/components/MyGameList";
 
 
 export default async function Home() {
@@ -28,8 +29,9 @@ export default async function Home() {
               <Heading pb={6}>
                   TIC TAC TOE
               </Heading>
-              {auth.currentUser ? (<CreateGame/>) : <Box></Box>}
-              <GameList/>
+              {/*{auth.currentUser ? (<CreateGame/>) : <Box></Box>}*/}
+              {/*{auth.currentUser ? (<MyGameList/>): <Box/>}*/}
+              {/*<GameList/>*/}
               <GameArchive/>
 
           </VStack>

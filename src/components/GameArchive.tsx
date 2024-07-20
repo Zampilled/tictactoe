@@ -1,7 +1,7 @@
 "use client"
 import {
     Box,
-    Button,
+    Button, Heading, HStack, Image,
     Modal,
     ModalBody,
     ModalCloseButton,
@@ -11,23 +11,36 @@ import {
     ModalOverlay,
     useDisclosure,
     VStack,
+    Text
 } from "@chakra-ui/react";
 import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 import {useState} from "react";
+import {useRouter} from "next/navigation";
+import {useCollectionDataOnce, useCollectionOnce} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
+    const router = useRouter()
+
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [list, setList] = useState([]);
-    const gameQuery = query(collection(db, "games"), where("active", "==", true));
-    getDocs(gameQuery).then(out =>
-    out.forEach((doc) => {
-        list.push(doc.data())
-    }
-    )
-    );
+    let myArray = []
+    const gameQuery = query(collection(db, "games"));
+    // getDocs(gameQuery).then(out =>{
+    // out.forEach((doc) => {
+    //     myArray.push(doc.data())
+    // }
+    // )
+    //  setList(myArray)
+    // }
+    // );
 
-    console.log(list)
+
+    const [snapshot] = useCollectionDataOnce(gameQuery);
+    console.log(snapshot)
+    snapshot?.map((doc)=>{
+        console.log(doc)
+    })
 
     return (
         <>
@@ -45,21 +58,20 @@ export default function GameArchive(){
                     <ModalBody>
                         <VStack>
                             <Box>
-                            {
-                                list.map(() => (
-                                <Box>
-                                <Button>haii</Button>
-                                </Box>
-                                )
-                            )}
+                            {/*{*/}
+                            {/*    list.map((values) => (*/}
+                            {/*    <Box p={1}>*/}
+                            {/*    <Button onClick={() => router.push("/game/" + String(values.id))}>*/}
+                            {/*        <HStack>*/}
+                            {/*            <Text>(X) {values.x_uuid} VS {values.o_uuid} (O)</Text>*/}
+                            {/*        </HStack>*/}
+                            {/*    </Button>*/}
+                            {/*    </Box>*/}
+                            {/*    )*/}
+                            {/*)}*/}
                             </Box>
                         </VStack>
                     </ModalBody>
-                    <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                    </ModalFooter>
                 </ModalContent>
             </Modal>
         </>
