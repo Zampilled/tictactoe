@@ -29,9 +29,9 @@ export default async function Home() {
               <Heading pb={6}>
                   TIC TAC TOE
               </Heading>
-              {/*{auth.currentUser ? (<CreateGame/>) : <Box></Box>}*/}
+              {auth.currentUser ? (<CreateGame/>) : <Box></Box>}
               {/*{auth.currentUser ? (<MyGameList/>): <Box/>}*/}
-              {/*<GameList/>*/}
+              <GameList/>
               <GameArchive/>
 
           </VStack>

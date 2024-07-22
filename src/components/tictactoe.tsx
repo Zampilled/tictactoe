@@ -78,11 +78,19 @@ export default function Tictactoe({
                 </Heading>
             </Box>
         )
-    }else if(game_state == 3) {
+    }else if(game_state == 2) {
         return (
             <Box>
                 <Heading>
                     O'S WIN
+                </Heading>
+            </Box>
+        )}
+    else if(game_state == 3){
+        return (
+            <Box>
+                <Heading>
+                    DRAW
                 </Heading>
             </Box>
         )

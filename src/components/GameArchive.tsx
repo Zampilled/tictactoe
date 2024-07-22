@@ -17,26 +17,14 @@ import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
-import {useCollectionDataOnce, useCollectionOnce} from "react-firebase-hooks/firestore";
+import {useCollectionData, useCollectionDataOnce, useCollectionOnce} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [list, setList] = useState([]);
-    let myArray = []
-    const gameQuery = query(collection(db, "games"));
-    // getDocs(gameQuery).then(out =>{
-    // out.forEach((doc) => {
-    //     myArray.push(doc.data())
-    // }
-    // )
-    //  setList(myArray)
-    // }
-    // );
-
-
-    const [snapshot] = useCollectionDataOnce(gameQuery);
+    const gameQuery = query(collection(db, "games"), where("active", "==", false));
+    const [snapshot] = useCollectionData(gameQuery);
     console.log(snapshot)
     snapshot?.map((doc)=>{
         console.log(doc)
@@ -57,18 +45,18 @@ export default function GameArchive(){
                     <ModalCloseButton />
                     <ModalBody>
                         <VStack>
-                            <Box>
-                            {/*{*/}
-                            {/*    list.map((values) => (*/}
-                            {/*    <Box p={1}>*/}
-                            {/*    <Button onClick={() => router.push("/game/" + String(values.id))}>*/}
-                            {/*        <HStack>*/}
-                            {/*            <Text>(X) {values.x_uuid} VS {values.o_uuid} (O)</Text>*/}
-                            {/*        </HStack>*/}
-                            {/*    </Button>*/}
-                            {/*    </Box>*/}
-                            {/*    )*/}
-                            {/*)}*/}
+                            <Box pb={3}>
+                            {
+                                snapshot?.map((values) => (
+                                <Box p={1}>
+                                <Button onClick={() => router.push("/game/" + String(values.id))}>
+                                    <HStack>
+                                        <Text>(X) {values.x_uuid} VS {values.o_uuid} (O)</Text>
+                                    </HStack>
+                                </Button>
+                                </Box>
+                                )
+                            )}
                             </Box>
                         </VStack>
                     </ModalBody>

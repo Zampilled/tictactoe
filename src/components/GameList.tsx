@@ -17,24 +17,19 @@ import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
+import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameList(){
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [list, setList] = useState([]);
-    let myArray = []
     const gameQuery = query(collection(db, "games"), where("active", "==", true));
-    getDocs(gameQuery).then(out =>{
-            out.forEach((doc) => {
-                    myArray.push(doc.data())
-                }
-            )
-            setList(myArray)
-        }
-    );
+    const [snapshot] = useCollectionData(gameQuery);
+    console.log(snapshot)
+    snapshot?.map((doc)=>{
+        console.log(doc)
+    })
 
-    console.log(list)
 
     return (
         <>
@@ -51,9 +46,9 @@ export default function GameList(){
                     <ModalCloseButton />
                     <ModalBody>
                         <VStack>
-                            <Box>
+                            <Box pb={3}>
                                 {
-                                    list.map((values) => (
+                                    snapshot?.map((values) => (
                                             <Box p={1}>
                                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                                     <HStack>

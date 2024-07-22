@@ -3,7 +3,7 @@ import {db} from "@/src/lib/firebase/clientApp";
 
 function checkTriplet(x,y,z){
     if (x>0 && y>0 && z>0) {
-        if (x == y == z) {
+        if (x == y && y == z) {
             return x
         }
     }
@@ -39,6 +39,15 @@ function checkDiag(board){
     return 0
 }
 
+function checkDraw(board){
+    for (let i = 0; i < board.length; i++) {
+        if (board[i] == 0){
+            return false
+        }
+    }
+    return true
+}
+
 function pushWinner(winner,id,data){
     console.log(data)
     data.game_state=winner
@@ -54,12 +63,15 @@ export default async function checkBoard(id){
     const data = await getDoc(docRef)
     const processed_data = data.data()
     const board = processed_data.board
+
+
     const checkColumnResult = checkCol(board)
     const checkRowResult = checkRow(board)
     const checkDiagResult = checkDiag(board)
     console.log({checkColumnResult, checkRowResult, checkDiagResult})
-
-    if (checkColumnResult > 0){
+    if(checkDraw(board)){
+        pushWinner(3, id, processed_data)
+    } else if (checkColumnResult > 0){
         pushWinner(checkColumnResult, id, processed_data)
     }else if(checkRowResult > 0){
         pushWinner(checkRowResult, id, processed_data)
