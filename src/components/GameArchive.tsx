@@ -15,9 +15,8 @@ import {
 } from "@chakra-ui/react";
 import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
-import {useState} from "react";
 import {useRouter} from "next/navigation";
-import {useCollectionData, useCollectionDataOnce, useCollectionOnce} from "react-firebase-hooks/firestore";
+import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
     const router = useRouter()
@@ -47,7 +46,7 @@ export default function GameArchive(){
                         <VStack>
                             <Box pb={3}>
                             {
-                                snapshot?.map((values) => (
+                                snapshot?(snapshot.length>0? (snapshot.map((values) => (
                                 <Box p={1}>
                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                     <HStack>
@@ -56,7 +55,7 @@ export default function GameArchive(){
                                 </Button>
                                 </Box>
                                 )
-                            )}
+                                )): <Text pb={2}>No Archived Games :(</Text>) : <Box/>}
                             </Box>
                         </VStack>
                     </ModalBody>

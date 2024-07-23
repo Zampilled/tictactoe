@@ -5,7 +5,7 @@ import Tile from "@/src/components/Tile";
 import ResetGame from "@/src/components/ResetGame.tsx";
 
 
-export default function Tictactoe({
+export default function TicTacToe({
                                       game_id,
     a1,
     a2,
@@ -73,31 +73,36 @@ export default function Tictactoe({
         )
     }else if(game_state == 1){
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
+                <VStack>
                 <Heading>
                     X'S WIN
                 </Heading>
                 <ResetGame id={game_id}/>
-
-            </Box>
+                </VStack>
+            </Center>
         )
     }else if(game_state == 2) {
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
+                <VStack>
                 <Heading>
                     O'S WIN
                 </Heading>
                 <ResetGame id={game_id}/>
-            </Box>
+                </VStack>
+            </Center>
         )}
     else if(game_state == 3){
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
+                <VStack>
                 <Heading>
                     DRAW
                 </Heading>
                 <ResetGame id={game_id}/>
-            </Box>
+                </VStack>
+            </Center>
         )
     }else {
         return (

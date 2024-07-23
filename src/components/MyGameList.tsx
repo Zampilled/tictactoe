@@ -13,11 +13,9 @@ import {
     VStack,
     Text
 } from "@chakra-ui/react";
-import {and, collection, getDocs, or, query, where} from "@firebase/firestore";
-import {db} from "@/src/lib/firebase/clientApp";
-import {useState} from "react";
+import {and, collection, or, query, where} from "@firebase/firestore";
+import {db, auth} from "@/src/lib/firebase/clientApp";
 import {useRouter} from "next/navigation";
-import {auth} from "@/src/lib/firebase/clientApp"
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 
@@ -27,7 +25,7 @@ export default function MyGameList(){
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const gameQuery = query(collection(db, "games"),    and(where("active", "==", true), or(where("x_uuid", "==", auth.currentUser.email), where("o_uuid", "==", auth.currentUser.email))));
+    const gameQuery = query(collection(db, "games"), and(where("active", "==", true), or(where("x_uuid", "==", auth.currentUser.email), where("o_uuid", "==", auth.currentUser.email))));
     const [snapshot] = useCollectionData(gameQuery);
     console.log(snapshot)
     snapshot?.map((doc)=>{
@@ -51,7 +49,7 @@ export default function MyGameList(){
                         <VStack>
                             <Box>
                                 {
-                                    snapshot?.map((values) => (
+                                    snapshot?(snapshot.length>0? snapshot.map((values) => (
                                             <Box p={1}>
                                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                                     <HStack>
@@ -60,7 +58,7 @@ export default function MyGameList(){
                                                 </Button>
                                             </Box>
                                         )
-                                    )}
+                                    ) : <Text p={3}>No Active Games :(</Text>): <Box></Box> }
                             </Box>
                         </VStack>
                     </ModalBody>

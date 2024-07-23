@@ -1,17 +1,9 @@
 "use client"
 import {auth} from "@/src/lib/firebase/clientApp"
-
-
 import {
     Box,
-    Button,
     Center,
     Heading,
-    Modal, ModalBody, ModalCloseButton,
-    ModalContent, ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    useDisclosure,
     VStack
 } from "@chakra-ui/react";
 
@@ -21,11 +13,11 @@ import GameArchive from "@/src/components/GameArchive";
 import MyGameList from "@/src/components/MyGameList";
 
 
-export default async function Home() {
+export default function Home() {
 
   return (
       <Center minHeight={"30vh"} minWidth={"100vw"} >
-          <VStack>
+          <VStack >
               <Heading pb={6}>
                   Choose Option:
               </Heading>

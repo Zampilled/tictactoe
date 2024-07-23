@@ -1,11 +1,11 @@
 "use client"
 
 import {useDocumentData} from "react-firebase-hooks/firestore";
-import Tictactoe from "@/src/components/tictactoe";
+import TicTacToe from "@/src/components/TicTacToe.tsx";
 import {doc} from "firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 import {auth} from "@/src/lib/firebase/clientApp";
-import {Heading} from "@chakra-ui/react";
+import {Center, Heading} from "@chakra-ui/react";
 import {useUserSession} from "@/src/lib/useUserSession";
 import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp";
 import {useAuthState} from "react-firebase-hooks/auth";
@@ -19,7 +19,7 @@ export default function Home({params}){
     if (data[0]){
     return(
 
-        <Tictactoe
+        <TicTacToe
         a1={data[0].board[0]}
         a2={data[0].board[1]}
         a3={data[0].board[2]}
@@ -40,9 +40,11 @@ export default function Home({params}){
     )
     }else{
         return(
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
         <Heading>
             Game does not exist
         </Heading>
+            </Center>
         )
     }
 }

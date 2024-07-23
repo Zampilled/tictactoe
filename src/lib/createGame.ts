@@ -13,6 +13,6 @@ export default  function createGame(x_user, o_user){
         "replay_id": -1,
         "active": true
     }
-    setDoc(doc(db, "games", String(game_id)), myData)
+    setDoc(doc(db, "games", String(game_id)), myData).then(r => {})
     return game_id
 }
