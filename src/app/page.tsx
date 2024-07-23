@@ -1,15 +1,43 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+import {auth} from "@/src/lib/firebase/clientApp"
 
-export default function Home() {
+
+import {
+    Box,
+    Button,
+    Center,
+    Heading,
+    Modal, ModalBody, ModalCloseButton,
+    ModalContent, ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    useDisclosure,
+    VStack
+} from "@chakra-ui/react";
+
+import GameList from "@/src/components/GameList";
+import CreateGame from "@/src/components/CreateGame";
+import GameArchive from "@/src/components/GameArchive";
+import MyGameList from "@/src/components/MyGameList";
+
+
+export default async function Home() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-       Tic Tac Toe
-        </p>
+      <Center minHeight={"30vh"} minWidth={"100vw"} >
+          <VStack>
+              <Heading pb={6}>
+                  Choose Option:
+              </Heading>
+              {auth.currentUser ? (<CreateGame/>) : <Box></Box>}
+              {auth.currentUser ? (<MyGameList/>): <Box/>}
+              <GameList/>
+              <GameArchive/>
 
-      </div>
-    </main>
+          </VStack>
+      </Center>
+
+
   );
 }
+
