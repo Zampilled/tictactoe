@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
-import {useState} from "react";
 import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 

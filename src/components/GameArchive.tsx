@@ -15,9 +15,8 @@ import {
 } from "@chakra-ui/react";
 import {collection, getDocs, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
-import {useState} from "react";
 import {useRouter} from "next/navigation";
-import {useCollectionData, useCollectionDataOnce, useCollectionOnce} from "react-firebase-hooks/firestore";
+import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
     const router = useRouter()
