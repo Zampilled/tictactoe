@@ -9,6 +9,7 @@ import { firebaseConfig } from "./config";
 import { getAuth } from "firebase/auth";
 
 export async function getAuthenticatedAppForUser() {
+    // Creates Authentication state
     const idToken = headers().get("Authorization")?.split("Bearer ")[1];
 
     const firebaseServerApp = initializeServerApp(

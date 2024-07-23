@@ -1,7 +1,7 @@
 import "firebase/auth"
 import "firebase/firestore"
 
-
+// Configuration file for Firebase
 
 const config = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,

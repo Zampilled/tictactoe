@@ -22,6 +22,7 @@ import { Field, Form, Formik } from 'formik';
 
 
 export default function CreateGame(){
+    // Component that deals with creating a new game given an email
     const router = useRouter()
     const { isOpen, onOpen, onClose } = useDisclosure()
     function onSubmit(values){

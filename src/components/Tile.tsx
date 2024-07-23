@@ -2,6 +2,7 @@ import {Button, Center, Heading} from "@chakra-ui/react";
 import makeMove from "@/src/lib/makeMove";
 
 export default function Tile({tile_state, tile_i, game_id, turn, user, x_uuid, o_uuid}){
+    // Component for the Tile of the Tic Tac Toe Game
     function handleClick(){
         makeMove(tile_i, game_id, turn, user, x_uuid, o_uuid)
     }

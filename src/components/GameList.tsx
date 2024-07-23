@@ -19,6 +19,7 @@ import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameList(){
+    // Component that displays all current games
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()

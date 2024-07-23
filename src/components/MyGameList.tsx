@@ -20,7 +20,7 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 
 
 export default function MyGameList(){
-
+    // Component that displays players current games
 
     const router = useRouter()
 

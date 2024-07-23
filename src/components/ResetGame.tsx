@@ -20,6 +20,7 @@ import {Integer} from "@firebase/webchannel-wrapper/bloom-blob";
 
 
 export default function ResetGame({id}){
+    // Button Component that lets a player reset a game after a finished game
     const router = useRouter()
 
 

@@ -19,6 +19,7 @@ import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
+    // Component that lists all finished games and links to them
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()

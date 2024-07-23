@@ -6,10 +6,12 @@ import {
 import { auth } from "@/src/lib/firebase/clientApp";
 
 export function onAuthStateChanged(cb) {
+    // deals with Authentic Changes
     return _onAuthStateChanged(auth, cb);
 }
 
 export async function signInWithGoogle() {
+    // Signs in with Google Popup
     const provider = new GoogleAuthProvider();
 
     try {
@@ -20,6 +22,7 @@ export async function signInWithGoogle() {
 }
 
 export async function signOut() {
+    // Signs out the user
     try {
         return auth.signOut();
     } catch (error) {

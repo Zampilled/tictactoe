@@ -13,6 +13,7 @@ import {useAuthState} from "react-firebase-hooks/auth";
 
 
 export default function Home({params}){
+    // Creates page with specific game given a game id in the url
     const docRef = doc(db, "games", params.id)
     const data = useDocumentData(docRef)
     const user = auth.currentUser

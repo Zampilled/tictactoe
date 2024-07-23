@@ -23,6 +23,7 @@ export default function TicTacToe({
     turn,
 
     }){
+    // Tic Tac Toe Component that displays a game
     if(game_state == 0) {
         return (
             <Box>
