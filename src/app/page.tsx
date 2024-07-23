@@ -27,10 +27,10 @@ export default async function Home() {
       <Center minHeight={"30vh"} minWidth={"100vw"} >
           <VStack>
               <Heading pb={6}>
-                  TIC TAC TOE
+                  Choose Option:
               </Heading>
               {auth.currentUser ? (<CreateGame/>) : <Box></Box>}
-              {/*{auth.currentUser ? (<MyGameList/>): <Box/>}*/}
+              {auth.currentUser ? (<MyGameList/>): <Box/>}
               <GameList/>
               <GameArchive/>
 

@@ -10,6 +10,7 @@ export default  function createGame(x_user, o_user){
         "x_uuid": x_user,
         "o_uuid": o_user,
         "turn": 1,
+        "replay_id": -1,
         "active": true
     }
     setDoc(doc(db, "games", String(game_id)), myData)

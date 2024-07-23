@@ -2,6 +2,7 @@
 
 import {Box, Button, Center, Heading, HStack, VStack} from "@chakra-ui/react";
 import Tile from "@/src/components/Tile";
+import ResetGame from "@/src/components/ResetGame.tsx";
 
 
 export default function Tictactoe({
@@ -76,6 +77,8 @@ export default function Tictactoe({
                 <Heading>
                     X'S WIN
                 </Heading>
+                <ResetGame id={game_id}/>
+
             </Box>
         )
     }else if(game_state == 2) {
@@ -84,6 +87,7 @@ export default function Tictactoe({
                 <Heading>
                     O'S WIN
                 </Heading>
+                <ResetGame id={game_id}/>
             </Box>
         )}
     else if(game_state == 3){
@@ -92,6 +96,7 @@ export default function Tictactoe({
                 <Heading>
                     DRAW
                 </Heading>
+                <ResetGame id={game_id}/>
             </Box>
         )
     }else {

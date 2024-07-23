@@ -13,39 +13,26 @@ import {
     VStack,
     Text
 } from "@chakra-ui/react";
-import {collection, getDocs, query, where} from "@firebase/firestore";
+import {and, collection, getDocs, or, query, where} from "@firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import {auth} from "@/src/lib/firebase/clientApp"
+import {useCollectionData} from "react-firebase-hooks/firestore";
 
 
 export default function MyGameList(){
+
+
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [list, setList] = useState([]);
-    let myArray = []
-    let newArray = []
-    const currentUser = auth.currentUser
-    const gameQuery = query(collection(db, "games"), where("active", "==", true));
-    getDocs(gameQuery).then(out =>{
-            out.forEach((doc) => {
-                    myArray.push(doc.data())
-                }
-            )
-            for (const game in myArray){
-                console.log(game)
-                if(game.x_uuid==currentUser.email || game.o_uuid == currentUser.email){
-                    newArray.push(game)
-                }
-            }
-            setList(newArray)
-
-        }
-    );
-
-    console.log(list)
+    const gameQuery = query(collection(db, "games"),    and(where("active", "==", true), or(where("x_uuid", "==", auth.currentUser.email), where("o_uuid", "==", auth.currentUser.email))));
+    const [snapshot] = useCollectionData(gameQuery);
+    console.log(snapshot)
+    snapshot?.map((doc)=>{
+        console.log(doc)
+    })
 
     return (
         <>
@@ -64,7 +51,7 @@ export default function MyGameList(){
                         <VStack>
                             <Box>
                                 {
-                                    list.map((values) => (
+                                    snapshot?.map((values) => (
                                             <Box p={1}>
                                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                                     <HStack>

@@ -9,12 +9,13 @@ import {
 import { useRouter } from "next/navigation";
 import { firebaseConfig } from "@/src/lib/firebase/config";
 import {useUserSession} from "@/src/lib/useUserSession";
-import {Box, Button, Center, Container, Flex, HStack, Image, Text} from "@chakra-ui/react";
+import {Box, Button, Center, Container, Flex, Heading, HStack, Image, Spacer, Text} from "@chakra-ui/react";
 
 
 export default function Header({initialUser}) {
 
     const user = useUserSession(initialUser) ;
+    const router = useRouter()
 
     const handleSignOut = event => {
         event.preventDefault();
@@ -27,15 +28,29 @@ export default function Header({initialUser}) {
     };
 
     return (
+        <Flex minWidth='max-content' alignItems='center' gap='2'>
+            <Box p='2'>
+                <Button minWidth={"7vh"} variant={"ghost"} minHeight={"7vh"} onClick={() => router.push("/")}>
+                    <HStack>
 
-            <Container width={"100%"} display={"flex"} align={"center"}>
-                <Box align={"right"}>
-            {user ? (
-                <HStack>
+                    <Image maxWidth={"7vh"} maxHeight={"7vh"} src={"/logo.png"}/>
 
 
-                    <Image src={user.photoURL || "/profile.svg"} alt={user.email} />
-                    <Text>{user.email}</Text>
+
+                <Heading size='xl' color={"#5E17EB"}>TIC</Heading>
+                    <Heading size='xl' >TAC</Heading>
+                    <Heading size='xl' color={"#5E17EB"}>TOE</Heading>
+                </HStack>
+                </Button>
+            </Box>
+            <Spacer />
+            <Box gap={2} p={4}>
+                {user ? (
+                    <HStack>
+
+
+                        <Image src={user.photoURL || "/profile.svg"} alt={user.email} borderRadius={"100%"} maxW={"5vw"} />
+                        <Text>{user.email}</Text>
 
 
 
@@ -45,15 +60,16 @@ export default function Header({initialUser}) {
 
 
 
-                </HStack>
-            ) : (
-                <Button onClick={handleSignIn}>
+                    </HStack>
+                ) : (
+                    <Button onClick={handleSignIn}>
 
-                    Login
-                </Button>
-            )}
-                </Box>
-            </Container>
+                        Login
+                    </Button>
+                )}
+            </Box>
+        </Flex>
+
 
 
 
