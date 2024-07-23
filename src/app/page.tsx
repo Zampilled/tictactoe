@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
       <Center minHeight={"30vh"} minWidth={"100vw"} >
-          <VStack>
+          <VStack >
               <Heading pb={6}>
                   Choose Option:
               </Heading>

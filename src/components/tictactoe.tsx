@@ -73,31 +73,31 @@ export default function Tictactoe({
         )
     }else if(game_state == 1){
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <Heading>
                     X'S WIN
                 </Heading>
                 <ResetGame id={game_id}/>
 
-            </Box>
+            </Center>
         )
     }else if(game_state == 2) {
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <Heading>
                     O'S WIN
                 </Heading>
                 <ResetGame id={game_id}/>
-            </Box>
+            </Center>
         )}
     else if(game_state == 3){
         return (
-            <Box>
+            <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <Heading>
                     DRAW
                 </Heading>
                 <ResetGame id={game_id}/>
-            </Box>
+            </Center>
         )
     }else {
         return (
