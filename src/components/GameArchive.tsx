@@ -46,7 +46,7 @@ export default function GameArchive(){
                         <VStack>
                             <Box pb={3}>
                             {
-                                snapshot?.map((values) => (
+                                snapshot?(snapshot.length>0? (snapshot.map((values) => (
                                 <Box p={1}>
                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                     <HStack>
@@ -55,7 +55,7 @@ export default function GameArchive(){
                                 </Button>
                                 </Box>
                                 )
-                            )}
+                                )): <Text pb={2}>No Archived Games :(</Text>) : <Box/>}
                             </Box>
                         </VStack>
                     </ModalBody>

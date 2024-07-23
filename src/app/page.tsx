@@ -2,14 +2,8 @@
 import {auth} from "@/src/lib/firebase/clientApp"
 import {
     Box,
-    Button,
     Center,
     Heading,
-    Modal, ModalBody, ModalCloseButton,
-    ModalContent, ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    useDisclosure,
     VStack
 } from "@chakra-ui/react";
 

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/src/components/header";
+import Header from "@/src/components/Header.tsx";
 import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp";
 import {Providers} from "@/src/app/providers";
 
@@ -22,13 +21,11 @@ export default async function RootLayout({
   return (
 
       <html lang="en">
-
       <body>
 
       <main>
           <Providers>
           <Header initialUser={currentUser}/>
-
             {children}
           </Providers>
       </main>

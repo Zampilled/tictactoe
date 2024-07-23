@@ -49,7 +49,7 @@ export default function MyGameList(){
                         <VStack>
                             <Box>
                                 {
-                                    snapshot?.map((values) => (
+                                    snapshot?(snapshot.length>0? snapshot.map((values) => (
                                             <Box p={1}>
                                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                                     <HStack>
@@ -58,7 +58,7 @@ export default function MyGameList(){
                                                 </Button>
                                             </Box>
                                         )
-                                    )}
+                                    ) : <Text p={3}>No Active Games :(</Text>): <Box></Box> }
                             </Box>
                         </VStack>
                     </ModalBody>
