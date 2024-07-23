@@ -91,6 +91,9 @@ export default function TicTacToe({
                 <VStack>
                     <Heading>GAME ID {game_id}</Heading>
                     <Heading>(X) {x_uuid} VS {o_uuid} (O) </Heading>
+                    <Heading>
+                        O'S WIN
+                    </Heading>
                 <ResetGame id={game_id}/>
                 </VStack>
             </Center>
