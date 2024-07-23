@@ -14,7 +14,7 @@ import MyGameList from "@/src/components/MyGameList";
 
 
 export default function Home() {
-
+    // Main Page of the project that displays basic functionality
   return (
       <Center minHeight={"30vh"} minWidth={"100vw"} >
           <VStack >

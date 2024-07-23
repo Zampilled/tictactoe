@@ -14,6 +14,7 @@ export default async function makeMove(
     x_uuid,
     o_uuid
     ){
+    // Checks if a move is valid and if it is makes it and updates the database
     console.log({tile_i,
         game_id,
         turn,

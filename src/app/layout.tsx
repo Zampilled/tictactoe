@@ -17,6 +17,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    // Basic layout for the project
+
   const { currentUser } = await getAuthenticatedAppForUser();
   return (
 

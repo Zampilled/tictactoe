@@ -20,7 +20,7 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 
 
 export default function MyGameList(){
-
+    // Component that displays players current games
 
     const router = useRouter()
 
@@ -47,7 +47,7 @@ export default function MyGameList(){
                     <ModalCloseButton />
                     <ModalBody>
                         <VStack>
-                            <Box>
+                            <Box p={3}>
                                 {
                                     snapshot?(snapshot.length>0? snapshot.map((values) => (
                                             <Box p={1}>

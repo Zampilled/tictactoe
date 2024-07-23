@@ -19,6 +19,7 @@ import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 export default function GameArchive(){
+    // Component that lists all finished games and links to them
     const router = useRouter()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -55,7 +56,7 @@ export default function GameArchive(){
                                 </Button>
                                 </Box>
                                 )
-                                )): <Text pb={2}>No Archived Games :(</Text>) : <Box/>}
+                                )): <Text pb={3}>No Archived Games :(</Text>) : <Box/>}
                             </Box>
                         </VStack>
                     </ModalBody>

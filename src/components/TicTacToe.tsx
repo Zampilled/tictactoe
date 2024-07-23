@@ -23,6 +23,7 @@ export default function TicTacToe({
     turn,
 
     }){
+    // Tic Tac Toe Component that displays a game
     if(game_state == 0) {
         return (
             <Box>
@@ -75,6 +76,7 @@ export default function TicTacToe({
         return (
             <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <VStack>
+
                 <Heading>
                     X'S WIN
                 </Heading>
@@ -86,9 +88,8 @@ export default function TicTacToe({
         return (
             <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <VStack>
-                <Heading>
-                    O'S WIN
-                </Heading>
+                    <Heading>GAME ID {game_id}</Heading>
+                    <Heading>(X) {x_uuid} VS {o_uuid} (O) </Heading>
                 <ResetGame id={game_id}/>
                 </VStack>
             </Center>
@@ -97,6 +98,8 @@ export default function TicTacToe({
         return (
             <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <VStack>
+                    <Heading>GAME ID {game_id}</Heading>
+                    <Heading>(X) {x_uuid} VS {o_uuid} (O) </Heading>
                 <Heading>
                     DRAW
                 </Heading>
