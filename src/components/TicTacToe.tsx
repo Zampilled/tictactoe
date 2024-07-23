@@ -76,7 +76,8 @@ export default function TicTacToe({
         return (
             <Center minWidth={"70vw"} minHeight={"70vh"}>
                 <VStack>
-
+                    <Heading>GAME ID {game_id}</Heading>
+                    <Heading>(X) {x_uuid} VS {o_uuid} (O) </Heading>
                 <Heading>
                     X'S WIN
                 </Heading>
