@@ -30,6 +30,7 @@ export default function Header({initialUser}) {
     return (
         <Flex minWidth='100vw' maxWidth={"100vw"} alignItems='center' gap='2'>
             <Box p='2'>
+                <HStack>
                 <Button minWidth={"7vh"} variant={"ghost"} minHeight={"7vh"} onClick={() => router.push("/")}>
                     <HStack>
 
@@ -42,6 +43,8 @@ export default function Header({initialUser}) {
                     <Heading size='xl' color={"#5E17EB"}>TOE</Heading>
                 </HStack>
                 </Button>
+                    <Text>By azamolot@tcd.ie</Text>
+                </HStack>
             </Box>
             <Spacer />
             <Box gap={2} p={4}>

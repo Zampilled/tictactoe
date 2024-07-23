@@ -56,7 +56,7 @@ export default function GameArchive(){
                                 </Button>
                                 </Box>
                                 )
-                                )): <Text pb={2}>No Archived Games :(</Text>) : <Box/>}
+                                )): <Text pb={3}>No Archived Games :(</Text>) : <Box/>}
                             </Box>
                         </VStack>
                     </ModalBody>

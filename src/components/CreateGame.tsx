@@ -65,7 +65,7 @@ export default function CreateGame(){
                         <ModalFooter>
                             <Button
                                 mt={4}
-                                colorScheme='teal'
+                                bgColor='#5E17EB'
                                 isLoading={props.isSubmitting}
                                 type='submit'
                             >
