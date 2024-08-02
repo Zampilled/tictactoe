@@ -1,6 +1,7 @@
 import {
     GoogleAuthProvider,
     signInWithPopup,
+    signInWithEmailAndPassword,
     onAuthStateChanged as _onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "@/src/lib/firebase/clientApp";
@@ -19,6 +20,10 @@ export async function signInWithGoogle() {
     } catch (error) {
         console.error("Error signing in with Google", error);
     }
+}
+
+export async function signInGuest(user,password){
+    signInWithEmailAndPassword(auth, user, password)
 }
 
 export async function signOut() {

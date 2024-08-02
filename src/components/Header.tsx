@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
     signInWithGoogle,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged, signInGuest
 } from "@/src/lib/firebase/auth.ts";
 import { useRouter } from "next/navigation";
 import { firebaseConfig } from "@/src/lib/firebase/config";
@@ -26,6 +26,19 @@ export default function Header({initialUser}) {
         event.preventDefault();
         signInWithGoogle();
     };
+
+    const handleGuestSignIn = (id) =>{
+        let email;
+        let password;
+        if (id == 1){
+            email = "1@guest.ie"
+            password = "guest1"
+        }else{
+            email = "2@guest.ie"
+            password = "guest2"
+        }
+        signInGuest(email, password)
+    }
 
     return (
         <Flex minWidth='100vw' maxWidth={"100vw"} alignItems='center' gap='2'>
@@ -65,10 +78,18 @@ export default function Header({initialUser}) {
 
                     </HStack>
                 ) : (
+                    <HStack>
+                        <Button onClick={() => handleGuestSignIn(1)}>
+                            Guest 1
+                        </Button>
+                        <Button onClick={() => handleGuestSignIn(2)}>
+                            Guest 2
+                        </Button>
                     <Button onClick={handleSignIn}>
 
                         Login
                     </Button>
+                    </HStack>
                 )}
             </Box>
         </Flex>
