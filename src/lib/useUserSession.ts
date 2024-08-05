@@ -3,6 +3,10 @@ import {useRouter} from "next/navigation";
 import {firebaseConfig} from "@/src/lib/firebase/config";
 import {onAuthStateChanged} from "@/src/lib/firebase/auth";
 
+/**
+ * Boilerplate User session control code taken from Firebase and can be found in their documentation (why reinvent the wheel)
+ * @param initialUser - initial user of the state machine
+ */
 export function useUserSession(initialUser) {
     // The initialUser comes from the server via a server component
     const [user, setUser] = useState(initialUser);
