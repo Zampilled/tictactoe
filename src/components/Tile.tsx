@@ -7,7 +7,7 @@ import makeMove from "@/src/lib/makeMove";
  * If the tile hasn't been played it renders a button which when pressed invokes the makeMove method with the move details.
  * @param tile_state - number that dictates how the tile is displayed: 0 for hasn't been played; 1 for X; 2 for O; and anything else returns an error state.
  * @param tile_i - the location of the tile on the board
- * @param game_id - the id of the game belonging to the greaater Tic Tac Toe game.
+ * @param game_id - the id of the game belonging to the greater Tic Tac Toe game.
  * @param turn - Which players turn it is.
  * @param user - The current user that is logged in.
  * @param x_uuid - The email of the X player
@@ -16,13 +16,16 @@ import makeMove from "@/src/lib/makeMove";
  * @return A Tile Component
  */
 export default function Tile({tile_state, tile_i, game_id, turn, user, x_uuid, o_uuid}){
+    // checks the specific state of a tile
     if(tile_state == 0){
+        // No moves have been made onto this tile.
         return(
             <Button minWidth={"10vh"} minHeight={"10vh"} onClick={() => makeMove(tile_i, game_id, turn, user, x_uuid, o_uuid)}>
 
             </Button>
         )
     }else if(tile_state == 1){
+        // X state
         return(
             <Center minWidth={"10vh"} minHeight={"10vh"}>
             <Heading fontSize={"7vh"}>
@@ -31,6 +34,7 @@ export default function Tile({tile_state, tile_i, game_id, turn, user, x_uuid, o
             </Center>
         )
     }else if(tile_state == 2){
+        // O state
         return (
             <Center minWidth={"10vh"} minHeight={"10vh"}>
                 <Heading fontSize={"7vh"}>
@@ -39,6 +43,7 @@ export default function Tile({tile_state, tile_i, game_id, turn, user, x_uuid, o
             </Center>
         )
     }else {
+        // Error state
         return(
             <Heading>
                 E

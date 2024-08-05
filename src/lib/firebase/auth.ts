@@ -46,7 +46,6 @@ export async function signInGuest(user,password){
  * Signs out any user that is currently logged in.
  */
 export async function signOut() {
-    // Signs out the user
     try {
         return auth.signOut();
     } catch (error) {

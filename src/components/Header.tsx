@@ -24,7 +24,6 @@ import {Box, Button, Center, Container, Flex, Heading, HStack, Image, Spacer, Te
  * @return The Header component
  */
 export default function Header({initialUser}) {
-
     const user = useUserSession(initialUser);
     const router = useRouter()
     return (

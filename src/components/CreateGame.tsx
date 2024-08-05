@@ -32,6 +32,12 @@ import { Field, Form, Formik } from 'formik';
 export default function CreateGame(){
     const router = useRouter()
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    /**
+     * Deals with the Form submission of game creation.
+     * It then redirects the client to the new game.
+     * @param values - values of the form
+     */
     function onSubmit(values){
         if(values.o_user) {
             const id = createGame(auth.currentUser.email, values.o_user)
