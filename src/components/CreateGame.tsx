@@ -20,11 +20,24 @@ import { useRouter } from 'next/navigation'
 
 import { Field, Form, Formik } from 'formik';
 
-
+/**
+ * A Component that deals with the creation of a game.
+ *
+ * It does this by creating a form in a modal with a box that lets the user input an opponent's email.
+ * The component then takes the user authentication data along with the opponent email to the createGame backend function
+ * to deal with the creation of the game and on completion reroutes the client to the game page
+ * @constructor
+ * @return The Create Game Button Component
+ */
 export default function CreateGame(){
-    // Component that deals with creating a new game given an email
     const router = useRouter()
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    /**
+     * Deals with the Form submission of game creation.
+     * It then redirects the client to the new game.
+     * @param values - values of the form
+     */
     function onSubmit(values){
         if(values.o_user) {
             const id = createGame(auth.currentUser.email, values.o_user)

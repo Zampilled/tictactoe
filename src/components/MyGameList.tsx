@@ -18,20 +18,20 @@ import {db, auth} from "@/src/lib/firebase/clientApp";
 import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
-
-export default function MyGameList(){
-    // Component that displays players current games
-
+/**
+ * Component that lists all of user's unfinished games.
+ *
+ * The component uses the firestore to find all active (unfinished) games that the current logged in user is part of.
+ * It then maps each of these in a modal component to
+ * create a button for each game that when clicked redirects the client to that game.
+ * @constructor
+ * @return the Game List Compoenent described.
+ */
+export default function MyGameList() {
     const router = useRouter()
-
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const {isOpen, onOpen, onClose} = useDisclosure()
     const gameQuery = query(collection(db, "games"), and(where("active", "==", true), or(where("x_uuid", "==", auth.currentUser.email), where("o_uuid", "==", auth.currentUser.email))));
     const [snapshot] = useCollectionData(gameQuery);
-    console.log(snapshot)
-    snapshot?.map((doc)=>{
-        console.log(doc)
-    })
-
     return (
         <>
             <Button onClick={onOpen}>My Active Games</Button>
@@ -41,15 +41,15 @@ export default function MyGameList(){
                 isOpen={isOpen}
                 motionPreset='slideInBottom'
             >
-                <ModalOverlay />
+                <ModalOverlay/>
                 <ModalContent>
                     <ModalHeader>My Active Game List</ModalHeader>
-                    <ModalCloseButton />
+                    <ModalCloseButton/>
                     <ModalBody>
                         <VStack>
                             <Box p={3}>
                                 {
-                                    snapshot?(snapshot.length>0? snapshot.map((values) => (
+                                    snapshot ? (snapshot.length > 0 ? snapshot.map((values) => (
                                             <Box p={1}>
                                                 <Button onClick={() => router.push("/game/" + String(values.id))}>
                                                     <HStack>
@@ -58,7 +58,7 @@ export default function MyGameList(){
                                                 </Button>
                                             </Box>
                                         )
-                                    ) : <Text p={3}>No Active Games :(</Text>): <Box></Box> }
+                                    ) : <Text p={3}>No Active Games :(</Text>) : <Box></Box>}
                             </Box>
                         </VStack>
                     </ModalBody>

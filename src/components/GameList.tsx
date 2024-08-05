@@ -18,19 +18,19 @@ import {db} from "@/src/lib/firebase/clientApp";
 import {useRouter} from "next/navigation";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
+/**
+ * Component that lists all unfinished games.
+ *
+ * The component uses the firestore to find all active (unfinished) games it then maps each of these in a modal component
+ * to create a button for each game that when clicked redirects the client to that game.
+ * @constructor
+ * @return The Game List component described.
+ */
 export default function GameList(){
-    // Component that displays all current games
     const router = useRouter()
-
     const { isOpen, onOpen, onClose } = useDisclosure()
     const gameQuery = query(collection(db, "games"), where("active", "==", true));
     const [snapshot] = useCollectionData(gameQuery);
-    console.log(snapshot)
-    snapshot?.map((doc)=>{
-        console.log(doc)
-    })
-
-
     return (
         <>
             <Button onClick={onOpen}>Active Games</Button>

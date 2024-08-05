@@ -1,8 +1,14 @@
 import {db, auth} from "@/src/lib/firebase/clientApp";
 import {doc, setDoc} from "firebase/firestore";
 
+/**
+ * Creates a game given 2 users emails.
+ * Initializes an empty game with the two users and returns the game id.
+ * @param x_user - X players email
+ * @param o_user - O players email
+ * @return Number - the ID of the initialized game
+ */
 export default  function createGame(x_user, o_user){
-    //Creates a new game given two users and returns the game id
     const game_id = Math.floor(Math.random() * 10000000)
     const myData = {
         "id": game_id,

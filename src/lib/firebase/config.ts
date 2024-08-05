@@ -2,7 +2,6 @@ import "firebase/auth"
 import "firebase/firestore"
 
 // Configuration file for Firebase
-
 const config = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -12,7 +11,7 @@ const config = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// When deployed, there are quotes that need to be stripped
+// Strips quotes from each line of the config
 Object.keys(config).forEach((key) => {
     const configValue = config[key] + "";
     if (configValue.charAt(0) === '"') {

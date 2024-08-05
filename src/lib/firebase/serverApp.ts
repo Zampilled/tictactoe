@@ -8,8 +8,10 @@ import { initializeServerApp } from "firebase/app";
 import { firebaseConfig } from "./config";
 import { getAuth } from "firebase/auth";
 
+/**
+ * Creates Authentication State for User using inbuilt Firebase methods (Firebase Boilerplate)
+ */
 export async function getAuthenticatedAppForUser() {
-    // Creates Authentication state
     const idToken = headers().get("Authorization")?.split("Bearer ")[1];
 
     const firebaseServerApp = initializeServerApp(
