@@ -1,8 +1,14 @@
 import {doc, getDoc, setDoc} from "firebase/firestore";
 import {db} from "@/src/lib/firebase/clientApp";
 
+/**
+ * Checks if 3 tiles are not empty and are the same (ie. a winner triplet) it returns the winning state as a number
+ * @param x - first tile
+ * @param y - second tile
+ * @param z - third tile
+ * @return Number - if 0 it is not a winning triplet otherwise it returns the number of the winner.
+ */
 function checkTriplet(x,y,z){
-    // checks if 3 tiles are not empty and are the same ie. a winner triplet
     if (x>0 && y>0 && z>0) {
         if (x == y && y == z) {
             return x
@@ -10,8 +16,12 @@ function checkTriplet(x,y,z){
     }
     return 0
 }
+
+/**
+ * Checks all rows of the Tic Tac Toe Board
+ * @param board
+ */
 function checkRow(board){
-    // Checks all rows of the Tic Tac Toe Board
     for (let i = 0; i < 3; i++) {
         if (checkTriplet(board[i], board[i+3], board[i+6]) > 0){
             return board[i]
