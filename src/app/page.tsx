@@ -12,9 +12,13 @@ import CreateGame from "@/src/components/CreateGame";
 import GameArchive from "@/src/components/GameArchive";
 import MyGameList from "@/src/components/MyGameList";
 
-
+/**
+ * Home Page of the Project.
+ * Displays the main choices players have for accessing games
+ * @constructor
+ * @return Home Page
+ */
 export default function Home() {
-    // Main Page of the project that displays basic functionality
   return (
       <Center minHeight={"30vh"} minWidth={"100vw"} >
           <VStack >
