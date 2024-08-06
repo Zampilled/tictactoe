@@ -12,13 +12,18 @@ export const metadata: Metadata = {
   description: "Play Tic Tac Toe With Friends !",
 };
 
+/**
+ * Layout of the Projects Page.
+ * Provides the Chakra UI and the Header component.
+ * A general wrapper for all pages
+ * @param children - Children of the layout (ie. the pages)
+ * @constructor
+ */
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    // Basic layout for the project
-
   const { currentUser } = await getAuthenticatedAppForUser();
   return (
 
