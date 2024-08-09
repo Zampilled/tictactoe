@@ -5,6 +5,8 @@ This is my submission for SwEng 2024.
 It is a tic tac toe game with functionality much like a simpler version of [chess.com](chess.com) but for Tic Tac Toe.  
 It uses [NextJS](https://nextjs.org/), [Chakra UI](https://v2.chakra-ui.com/), and [Firebase](https://firebase.google.com/).
 
+Next.js 14.2.4 is used.
+
 ![Game Screenshot](/docs/game.png)
 
 ### Installation 
