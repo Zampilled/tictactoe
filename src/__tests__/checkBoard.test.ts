@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import {checkTriplet, checkDiag, checkDraw, checkCol, checkRow} from "@/src/lib/checkBoard"
 
 describe('checkTriplet', () => {
-    it('Checks Triplets by itterating over every possibility including numbers not used in future functionality', () => {
+    it('Checks Triplets by iterating over every possibility including numbers not used in future functionality', () => {
         let result:number = 0;
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
