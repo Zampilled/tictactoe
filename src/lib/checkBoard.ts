@@ -106,18 +106,11 @@ export default async function checkBoard(id){
     const checkDiagResult = checkDiag(board)
     if (checkColumnResult > 0){
         pushWinner(checkColumnResult, id, processed_data)
-        return checkColumnResult
     }else if(checkRowResult > 0){
         pushWinner(checkRowResult, id, processed_data)
-        return checkRowResult
     }else if(checkDiagResult > 0){
         pushWinner(checkDiagResult, id, processed_data)
-        return checkDiagResult
     }else if(checkDraw(board)){
         pushWinner(3, id, processed_data)
-        return 3
     }
-
-    return 0
-
 }
